@@ -33,7 +33,7 @@ steps:
     echo "*************** TERRAFORM INIT ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd cloudbuild/production/
+    cd production/
     terraform init 
 # [START tf-plan]
 - id: 'tf plan'
@@ -46,7 +46,7 @@ steps:
     echo "*************** TERRAFOM PLAN ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd cloudbuild/production/
+    cd production/
     terraform plan 
 # [END tf-plan]
 
@@ -58,7 +58,7 @@ steps:
   args: 
   - '-c'
   - | 
-    cd cloudbuild/production/
+    cd production/
     terraform apply -auto-approve 
 # [END tf-apply] 
 serviceAccount: 'projects/smooth-obelisk-356719/serviceAccounts/cloud-build'

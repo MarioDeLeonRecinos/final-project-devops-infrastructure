@@ -33,7 +33,7 @@ steps:
     echo "*************** TERRAFORM INIT ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd cloudbuild/development/
+    cd development/
     terraform init 
     terraform refresh 
 # [START tf-destroy]
@@ -47,7 +47,7 @@ steps:
     echo "*************** TERRAFOM DESTROY ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd cloudbuild/development/
+    cd development/
     terraform destroy -auto-approve
 # [END tf-destroy]
 serviceAccount: 'projects/micro-flight-356719/serviceAccounts/cloud-build'

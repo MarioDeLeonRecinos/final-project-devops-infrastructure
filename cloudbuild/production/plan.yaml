@@ -33,7 +33,7 @@ steps:
     echo "*************** TERRAFORM INIT ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd cloudbuild/production/
+    cd production/
     terraform init 
     terraform refresh 
 # [START tf-plan]
@@ -47,7 +47,7 @@ steps:
     echo "*************** TERRAFOM PLAN ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd cloudbuild/production/
+    cd production/
     terraform plan 
 # [END tf-plan]
 serviceAccount: 'projects/smooth-obelisk-356719/serviceAccounts/cloud-build'
