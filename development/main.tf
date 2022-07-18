@@ -15,7 +15,7 @@ module "dns-provider" {
   }
   subdomain = ["dash", "monitor","argo","vault"]
 }
-
+#test for cloud build
 module "kubernetes-provider" {
   source = "./modules/kubernetes-provider"
 
