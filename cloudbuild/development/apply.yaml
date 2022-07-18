@@ -33,6 +33,7 @@ steps:
     echo "*************** TERRAFORM INIT ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
+    cd cloudbuild/development/
     terraform init 
 # [START tf-plan]
 - id: 'tf plan'
@@ -45,6 +46,7 @@ steps:
     echo "*************** TERRAFOM PLAN ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
+    cd cloudbuild/development/
     terraform plan 
 # [END tf-plan]
 
@@ -56,6 +58,7 @@ steps:
   args: 
   - '-c'
   - | 
+    cd cloudbuild/development/
     terraform apply -auto-approve 
 # [END tf-apply] 
 serviceAccount: 'projects/micro-flight-356719/serviceAccounts/cloud-build'

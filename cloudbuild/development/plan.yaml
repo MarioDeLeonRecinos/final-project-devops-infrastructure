@@ -33,6 +33,7 @@ steps:
     echo "*************** TERRAFORM INIT ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
+    cd cloudbuild/development/
     terraform init 
     terraform refresh 
 # [START tf-plan]
@@ -46,6 +47,7 @@ steps:
     echo "*************** TERRAFOM PLAN ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
+    cd cloudbuild/development/
     terraform plan 
 # [END tf-plan]
 serviceAccount: 'projects/micro-flight-356719/serviceAccounts/cloud-build'
