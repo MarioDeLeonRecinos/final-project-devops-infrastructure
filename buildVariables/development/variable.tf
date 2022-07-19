@@ -57,6 +57,12 @@ variable "password_sql" {
   default     = "wp-password"
 }
 
+variable "availability_type_sql" {
+  description = "availability_type."
+  type        = string
+  default     = "ZONAL"
+}
+
 ## KUBERNETES VARIABLES
 variable "name_kubernetes" {
   description = "Name of the cluster"

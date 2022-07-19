@@ -24,6 +24,7 @@ resource "google_sql_database_instance" "instance" {
       ipv4_enabled    = false
       private_network = var.vpc_network
     }
+    availability_type = var.availability_type
   }
 }
 
