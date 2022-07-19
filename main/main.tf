@@ -1,45 +1,39 @@
 resource "google_compute_network" "vpc_network" {
-  name                    = "vpc-network"
-  auto_create_subnetworks = true
-  mtu                     = 1460
+  name                    = var.name_vpc
+  auto_create_subnetworks = var.auto_create_subnetworks_vpc
+  mtu                     = var.mtu_vpc
 }
 
 module "dns-provider" {
   source = "./modules/dns-provider"
 
-  name     = "week-9"
-  dns_name = "week9challenge.tk."
-  labels = {
-    creator = "mario",
-    owner   = "mario"
-  }
-  subdomain = ["dash", "monitor","argo","vault"]
+  name      = var.name_dns
+  dns_name  = var.dns_name
+  labels    = var.labels_dns
+  subdomain = var.subdomain_dns
 }
 #test for cloud build testtest
 module "kubernetes-provider" {
   source = "./modules/kubernetes-provider"
 
-  name                 = "my-gke-cluster"
-  name_node_pool       = "my-node-pool"
-  service_account_name = "service-account-id"
-  machine_type         = "e2-medium"
-  initial_node_count   = 1
-  node_count           = 3
+  name                 = var.name_kubernetes
+  name_node_pool       = var.name_node_pool_kubernetes
+  service_account_name = var.service_account_name_kubernetes
+  machine_type         = var.machine_type_kubernetes
+  initial_node_count   = var.initial_node_count_kubernetes
+  node_count           = var.node_count_kubernetes
   vpc_network          = google_compute_network.vpc_network.name
-  labels = {
-    creator = "mario",
-    owner   = "mario"
-  }
-  tags = ["creator", "owner","mario"]
+  labels               = var.labels_kubernetes
+  tags                 = var.tags_kubernetes
 }
 
 module "cloud-sql" {
   source = "./modules/cloud-sql"
 
-  name             = "my-private-db"
-  database_version = "MYSQL_8_0"
-  database_tier    = "db-f1-micro"
+  name             = var.name_sql
+  database_version = var.database_version_sql
+  database_tier    = var.database_tier_sql
   vpc_network      = google_compute_network.vpc_network.id
-  user             = "wp-user"
-  password         = "wp-password"
+  user             = var.user_sql
+  password         = var.password_sql
 }
