@@ -30,7 +30,7 @@ variable "subdomain_dns" {
 variable "name_sql" {
   description = "Name of the resource"
   type        = string
-  default     = "my-private-db"
+  default     = "my-sql-db"
 }
 
 variable "database_version_sql" {
