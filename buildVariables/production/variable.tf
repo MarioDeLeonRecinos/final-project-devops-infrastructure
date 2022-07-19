@@ -42,7 +42,7 @@ variable "database_version_sql" {
 variable "database_tier_sql" {
   description = "Database Tier to set."
   type        = string
-  default     = "db-f1-micro"
+  default     = "db-g1-small"
 }
 
 variable "user_sql" {
