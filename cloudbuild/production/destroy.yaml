@@ -12,11 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+timeout: '1800s'
 steps:
 - id: 'branch name'
   name: 'alpine'
-  timeout: '1800s'
   entrypoint: 'sh'  
   args: 
   - '-c'
@@ -26,7 +25,6 @@ steps:
       echo "***********************"
 - id: 'tf init'
   name: 'hashicorp/terraform:1.2.3'
-  timeout: '1800s'
   entrypoint: 'sh'
   args: 
   - '-c'
@@ -42,7 +40,6 @@ steps:
 # [START tf-destroy]
 - id: 'tf destroy'
   name: 'hashicorp/terraform:1.2.3'
-  timeout: '1800s'
   entrypoint: 'sh'
   args: 
   - '-c'
