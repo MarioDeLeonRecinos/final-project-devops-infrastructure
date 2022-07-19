@@ -27,3 +27,8 @@ variable "password" {
   description = "Password for user."
   type        = string
 }
+
+variable "availability_type" {
+  description = "Availability type."
+  type        = string
+}

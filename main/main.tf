@@ -30,10 +30,11 @@ module "kubernetes-provider" {
 module "cloud-sql" {
   source = "./modules/cloud-sql"
 
-  name             = var.name_sql
-  database_version = var.database_version_sql
-  database_tier    = var.database_tier_sql
-  vpc_network      = google_compute_network.vpc_network.id
-  user             = var.user_sql
-  password         = var.password_sql
+  name              = var.name_sql
+  database_version  = var.database_version_sql
+  database_tier     = var.database_tier_sql
+  vpc_network       = google_compute_network.vpc_network.id
+  user              = var.user_sql
+  password          = var.password_sql
+  availability_type = var.availability_type_sql
 }
