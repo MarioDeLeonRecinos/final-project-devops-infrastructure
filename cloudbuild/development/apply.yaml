@@ -13,11 +13,11 @@
 # limitations under the License.
 
 
+timeout: '1800s'
 steps:
 - id: 'branch name'
   name: 'alpine'
   entrypoint: 'sh'  
-  timeout: '1800s'
   args: 
   - '-c'
   - | 
@@ -26,7 +26,6 @@ steps:
       echo "***********************"
 - id: 'tf init'
   name: 'hashicorp/terraform:1.2.3'
-  timeout: '1800s'
   entrypoint: 'sh'
   args: 
   - '-c'
@@ -41,7 +40,6 @@ steps:
 # [START tf-plan]
 - id: 'tf plan'
   name: 'hashicorp/terraform:1.2.3'
-  timeout: '1800s'
   entrypoint: 'sh'
   args: 
   - '-c'
@@ -57,7 +55,6 @@ steps:
 # [START tf-apply]
 - id: 'tf apply'
   name: 'hashicorp/terraform:1.2.3'
-  timeout: '1800s'
   entrypoint: 'sh'
   args: 
   - '-c'
