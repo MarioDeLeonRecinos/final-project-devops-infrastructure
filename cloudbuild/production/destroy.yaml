@@ -33,7 +33,8 @@ steps:
     echo "*************** TERRAFORM INIT ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd production/
+    cp buildVariables/production/* main/
+    cd main/
     terraform init 
     terraform refresh 
 # [START tf-destroy]
@@ -47,7 +48,7 @@ steps:
     echo "*************** TERRAFOM DESTROY ******************"
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
-    cd production/
+    cd main/
     terraform destroy -auto-approve
 # [END tf-destroy]
 serviceAccount: 'projects/smooth-obelisk-356719/serviceAccounts/cloud-build'

@@ -49,7 +49,6 @@ steps:
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
     cd main/
-    ls
     terraform plan 
 # [END tf-plan]
 serviceAccount: 'projects/micro-flight-356719/serviceAccounts/cloud-build'
