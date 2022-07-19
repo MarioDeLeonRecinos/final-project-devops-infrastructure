@@ -23,7 +23,7 @@ variable "labels_dns" {
 variable "subdomain_dns" {
   description = "Subdomains to set."
   type        = set(string)
-  default     = ["dash", "monitor", "argo", "vault"]
+  default     = ["monitor", "argo", "vault", "nosql"]
 }
 
 ## SQL VARIABLES

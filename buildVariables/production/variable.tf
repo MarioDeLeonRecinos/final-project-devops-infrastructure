@@ -23,7 +23,7 @@ variable "labels_dns" {
 variable "subdomain_dns" {
   description = "Subdomains to set."
   type        = set(string)
-  default     = ["dash", "monitor", "argo", "vault"]
+  default     = ["monitor", "argo", "vault", "nosql"]
 }
 
 ## SQL VARIABLES
@@ -73,7 +73,7 @@ variable "name_node_pool_kubernetes" {
 variable "node_count_kubernetes" {
   description = "Number of nodes"
   type        = number
-  default     = 3
+  default     = 5
 }
 
 variable "initial_node_count_kubernetes" {
@@ -91,7 +91,7 @@ variable "service_account_name_kubernetes" {
 variable "machine_type_kubernetes" {
   description = "Name of the machine type"
   type        = string
-  default     = "e2-medium"
+  default     = "e2-highcpu-8"
 }
 
 variable "labels_kubernetes" {
