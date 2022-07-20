@@ -49,7 +49,7 @@ steps:
     echo "******* At environment: $BRANCH_NAME ********"
     echo "*************************************************"
     cd main/
-    terraform plan 
+    terraform plan -var 'password_sql=${_PASSWORD_SQL}' -var 'user_sql=${_USER_SQL}'
 # [END tf-plan]
 
 # [START tf-apply]
