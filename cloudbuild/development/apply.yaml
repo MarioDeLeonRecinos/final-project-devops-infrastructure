@@ -60,7 +60,7 @@ steps:
   - '-c'
   - | 
     cd main/
-    terraform apply -auto-approve 
+    terraform apply -var 'password_sql=${_PASSWORD_SQL}' -var 'user_sql=${_USER_SQL}' -auto-approve 
 # [END tf-apply] 
 serviceAccount: 'projects/micro-flight-356719/serviceAccounts/cloud-build'
 options:
