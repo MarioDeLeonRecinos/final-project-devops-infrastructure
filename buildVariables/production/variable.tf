@@ -60,7 +60,7 @@ variable "password_sql" {
 variable "availability_type_sql" {
   description = "availability_type."
   type        = string
-  default     = "REGIONAL"
+  default     = "ZONAL"
 }
 
 ## KUBERNETES VARIABLES
