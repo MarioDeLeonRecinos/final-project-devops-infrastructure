@@ -79,7 +79,7 @@ variable "name_node_pool_kubernetes" {
 variable "node_count_kubernetes" {
   description = "Number of nodes"
   type        = number
-  default     = 4
+  default     = 3
 }
 
 variable "initial_node_count_kubernetes" {
@@ -97,7 +97,7 @@ variable "service_account_name_kubernetes" {
 variable "machine_type_kubernetes" {
   description = "Name of the machine type"
   type        = string
-  default     = "e2-highcpu-8"
+  default     = "e2-highcpu-4"
 }
 
 variable "labels_kubernetes" {
