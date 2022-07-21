@@ -79,7 +79,7 @@ variable "name_node_pool_kubernetes" {
 variable "node_count_kubernetes" {
   description = "Number of nodes"
   type        = number
-  default     = 5
+  default     = 4
 }
 
 variable "initial_node_count_kubernetes" {
