@@ -27,18 +27,18 @@ resource "google_sql_database_instance" "instance" {
     ip_configuration {
       ipv4_enabled    = false
       private_network = var.vpc_network
-    }
-    availability_type = var.availability_type
 
-    dynamic "authorized_networks" {
-      for_each = local.onprem
-      iterator = onprem
+      dynamic "authorized_networks" {
+        for_each = local.onprem
+        iterator = onprem
 
-      content {
-        name  = "onprem-${onprem.key}"
-        value = onprem.value
+        content {
+          name  = "onprem-${onprem.key}"
+          value = onprem.value
+        }
       }
     }
+    availability_type = var.availability_type
   }
 }
 
