@@ -14,7 +14,7 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 }
 
 locals {
-  onprem = ["0.0.0.0/0"]
+  onprem = ["10.120.0.0/14"]
 }
 
 resource "google_sql_database_instance" "instance" {
@@ -25,7 +25,7 @@ resource "google_sql_database_instance" "instance" {
   settings {
     tier = var.database_tier #"db-f1-micro"
     ip_configuration {
-      ipv4_enabled    = false
+      ipv4_enabled    = true
       private_network = var.vpc_network
 
       dynamic "authorized_networks" {
