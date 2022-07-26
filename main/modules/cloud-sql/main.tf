@@ -13,6 +13,10 @@ resource "google_service_networking_connection" "private_vpc_connection" {
   reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
 }
 
+locals {
+  onprem = ["0.0.0.0/0"]
+}
+
 resource "google_sql_database_instance" "instance" {
   name             = var.name
   database_version = var.database_version #"MYSQL_8_0"
@@ -25,6 +29,16 @@ resource "google_sql_database_instance" "instance" {
       private_network = var.vpc_network
     }
     availability_type = var.availability_type
+
+    dynamic "authorized_networks" {
+      for_each = local.onprem
+      iterator = onprem
+
+      content {
+        name  = "onprem-${onprem.key}"
+        value = onprem.value
+      }
+    }
   }
 }
 
