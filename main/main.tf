@@ -4,6 +4,19 @@ resource "google_compute_network" "vpc_network" {
   mtu                     = var.mtu_vpc
 }
 
+resource "google_compute_firewall" "rules" {
+  name        = "my-firewall-rule"
+  network     = google_compute_network.vpc_network.name
+  description = "Creates firewall rule targeting ip range"
+
+  allow {
+    protocol  = "tcp"
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+
+}
+
 module "dns-provider" {
   source = "./modules/dns-provider"
 
