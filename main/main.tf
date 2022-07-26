@@ -10,9 +10,10 @@ resource "google_compute_firewall" "rules" {
   description = "Creates firewall rule targeting ip range"
 
   allow {
-    protocol  = "tcp"
+    protocol  = "all"
   }
-
+  
+  priority = 5000
   source_ranges = ["0.0.0.0/0"]
 
 }
