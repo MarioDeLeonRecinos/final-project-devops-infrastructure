@@ -5,10 +5,9 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_compute_firewall" "rules" {
-  project     = "my-project-name"
   name        = "my-firewall-rule"
-  network     = "default"
-  description = "Creates firewall rule targeting tagged instances"
+  network     = google_compute_network.vpc_network.name
+  description = "Creates firewall rule targeting ip range"
 
   allow {
     protocol  = "tcp"
