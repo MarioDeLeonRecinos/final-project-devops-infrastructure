@@ -14,7 +14,7 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 }
 
 locals {
-  onprem = ["10.120.0.0/14"]
+  onprem = ["0.0.0.0/0"]
 }
 
 resource "google_sql_database_instance" "instance" {
