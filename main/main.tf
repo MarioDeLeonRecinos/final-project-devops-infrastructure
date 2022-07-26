@@ -10,9 +10,35 @@ resource "google_compute_firewall" "rules" {
   description = "Creates firewall rule targeting ip range"
 
   allow {
-    protocol  = "all"
+    protocol  = "tcp"
   }
-  
+  allow {
+    protocol  = "udp"
+  }
+  allow {
+    protocol  = "icmp"
+  }
+
+  priority = 5000
+  source_ranges = ["0.0.0.0/0"]
+
+}
+
+resource "google_compute_firewall" "rulesEgress" {
+  name        = "my-firewall-rule-egress"
+  network     = google_compute_network.vpc_network.name
+  description = "Creates firewall rule targeting ip range"
+  direction = "EGRESS"
+  allow {
+    protocol  = "tcp"
+  }
+  allow {
+    protocol  = "udp"
+  }
+  allow {
+    protocol  = "icmp"
+  }
+
   priority = 5000
   source_ranges = ["0.0.0.0/0"]
 
